@@ -71,6 +71,7 @@ public class JSONService {
 		try {
 			InputStream source = bpe.getInputStream();
 			BufferedImage bi = ImageIO.read(source);
+			
 
 			File file = new File("E:/Goodies/svinbass/git/vinbass/theinventory/src/main/webapp/resources/images/VIN.jpg");
 
