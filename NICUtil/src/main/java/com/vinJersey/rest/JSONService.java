@@ -18,7 +18,7 @@ import com.sun.jersey.multipart.BodyPartEntity;
 import com.sun.jersey.multipart.MultiPart;
 import com.vinJersey.Business;
 
-@Path("/contact")
+@Path("contact")
 public class JSONService {
 
 	@GET
