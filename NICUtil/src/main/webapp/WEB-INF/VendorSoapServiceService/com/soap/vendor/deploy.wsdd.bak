@@ -1,0 +1,29 @@
+<!-- Use this file to deploy some handlers/chains and services      -->
+<!-- Two ways to do this:                                           -->
+<!--   java org.apache.axis.client.AdminClient deploy.wsdd          -->
+<!--      after the axis server is running                          -->
+<!-- or                                                             -->
+<!--   java org.apache.axis.utils.Admin client|server deploy.wsdd   -->
+<!--      from the same directory that the Axis engine runs         -->
+
+<deployment
+    xmlns="http://xml.apache.org/axis/wsdd/"
+    xmlns:java="http://xml.apache.org/axis/wsdd/providers/java">
+
+  <!-- Services from VendorSoapServiceService WSDL service -->
+
+  <service name="VendorSoapService" provider="java:RPC" style="wrapped" use="literal">
+      <parameter name="wsdlTargetNamespace" value="http://vendor.soap.com"/>
+      <parameter name="wsdlServiceElement" value="VendorSoapServiceService"/>
+      <parameter name="schemaQualified" value="http://vendor.soap.com"/>
+      <parameter name="wsdlServicePort" value="VendorSoapService"/>
+      <parameter name="className" value="com.soap.vendor.VendorSoapServiceSoapBindingImpl"/>
+      <parameter name="wsdlPortType" value="VendorSoapService"/>
+      <parameter name="typeMappingVersion" value="1.2"/>
+      <operation name="vendorName" qname="operNS:vendorName" xmlns:operNS="http://vendor.soap.com" returnQName="retNS:vendorNameReturn" xmlns:retNS="http://vendor.soap.com" returnType="rtns:string" xmlns:rtns="http://www.w3.org/2001/XMLSchema" soapAction="" >
+        <parameter qname="pns:vendorId" xmlns:pns="http://vendor.soap.com" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+      </operation>
+      <parameter name="allowedMethods" value="vendorName"/>
+
+  </service>
+</deployment>
