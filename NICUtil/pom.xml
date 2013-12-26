@@ -60,11 +60,17 @@
 			<version>1.8</version>
 		</dependency>
 
-		<!-- <dependency>
-			<groupId>asm</groupId>
-			<artifactId>asm-all</artifactId>
-			<version>2.2</version>
-		</dependency> -->
+		<!-- Oracle JDBC -->
+		<dependency>
+			<groupId>com.oracle</groupId>
+			<artifactId>ojdbc6</artifactId>
+			<version>11.2.0</version>
+		</dependency>
+
+
+
+		<!-- <dependency> <groupId>asm</groupId> <artifactId>asm-all</artifactId> 
+			<version>2.2</version> </dependency> -->
 
 	</dependencies>
 
