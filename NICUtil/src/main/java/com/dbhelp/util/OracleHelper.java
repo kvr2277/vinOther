@@ -10,6 +10,7 @@ import java.util.List;
 
 import com.model.Address;
 
+
 public class OracleHelper {
 	
 	public List<Address> getAddress(String vendorId){
@@ -31,7 +32,7 @@ public class OracleHelper {
 			e.printStackTrace();
 		}
 		
-		String queryString = "select * from Address where vendor_id = ?";
+		String queryString = "select * from Address where address_id = ?";
 		
 		try {
 			PreparedStatement ps = con.prepareStatement(queryString);

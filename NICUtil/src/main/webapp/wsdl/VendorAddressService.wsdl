@@ -29,7 +29,6 @@ Built on Apr 22, 2006 (06:55:48 PDT)-->
      <element name="city" nillable="true" type="xsd:string"/>
      <element name="country" nillable="true" type="xsd:string"/>
      <element name="state" nillable="true" type="xsd:string"/>
-     <element name="vendorId" type="xsd:int"/>
      <element name="zipcode" nillable="true" type="xsd:string"/>
     </sequence>
    </complexType>

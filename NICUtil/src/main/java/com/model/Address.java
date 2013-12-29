@@ -1,5 +1,6 @@
 package com.model;
 
+
 public class Address {
 
 	private String addressLine1;
@@ -8,7 +9,6 @@ public class Address {
 	private String state;
 	private String country;
 	private String zipcode;
-	private int vendorId;
 	private int addressId;
 	
 	
@@ -48,12 +48,6 @@ public class Address {
 	public void setZipcode(String zipcode) {
 		this.zipcode = zipcode;
 	}
-	public int getVendorId() {
-		return vendorId;
-	}
-	public void setVendorId(int vendorId) {
-		this.vendorId = vendorId;
-	}
 	public int getAddressId() {
 		return addressId;
 	}
@@ -66,7 +60,7 @@ public class Address {
 		return "Address [addressLine1=" + addressLine1 + ", addressLine2="
 				+ addressLine2 + ", city=" + city + ", state=" + state
 				+ ", country=" + country + ", zipcode=" + zipcode
-				+ ", vendorId=" + vendorId + ", addressId=" + addressId + "]";
+				+ ", addressId=" + addressId + "]";
 	}
 	
 	

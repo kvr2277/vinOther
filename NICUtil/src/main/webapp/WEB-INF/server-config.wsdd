@@ -7,8 +7,8 @@
   <ns1:parameter name="dotNetSoapEncFix" value="true"/>
   <ns1:parameter name="enableNamespacePrefixOptimization" value="false"/>
   <ns1:parameter name="sendXMLDeclaration" value="true"/>
-  <ns1:parameter name="sendXsiTypes" value="true"/>
   <ns1:parameter name="attachments.implementation" value="org.apache.axis.attachments.AttachmentsImpl"/>
+  <ns1:parameter name="sendXsiTypes" value="true"/>
   <ns1:requestFlow>
    <ns1:handler type="java:org.apache.axis.handlers.JWSHandler">
     <ns1:parameter name="scope" value="session"/>
@@ -27,13 +27,27 @@
    <ns2:parameter qname="ns1:vendorId" type="xsd:string"/>
   </ns2:operation>
   <ns1:parameter name="allowedMethods" value="vendorName"/>
-  <ns1:parameter name="typeMappingVersion" value="1.2"/>
   <ns1:parameter name="wsdlPortType" value="VendorSoapService"/>
-  <ns1:parameter name="className" value="com.soap.vendor.VendorSoapService"/>
-  <ns1:parameter name="wsdlServicePort" value="VendorSoapService"/>
+  <ns1:parameter name="typeMappingVersion" value="1.2"/>
   <ns1:parameter name="schemaQualified" value="http://vendor.soap.com"/>
+  <ns1:parameter name="wsdlServicePort" value="VendorSoapService"/>
+  <ns1:parameter name="className" value="com.soap.vendor.VendorSoapService"/>
   <ns1:parameter name="wsdlTargetNamespace" value="http://vendor.soap.com"/>
   <ns1:parameter name="wsdlServiceElement" value="VendorSoapServiceService"/>
+ </ns1:service>
+ <ns1:service name="VendorAddressService" provider="java:RPC" style="wrapped" use="literal">
+  <ns1:operation name="getVendorAddress" qname="ns2:getVendorAddress" returnQName="ns2:getVendorAddressReturn" returnType="ns3:Address" soapAction="" xmlns:ns2="http://vendor.soap.com" xmlns:ns3="http://model.com">
+   <ns1:parameter qname="ns2:vendorId" type="xsd:string" xmlns:xsd="http://www.w3.org/2001/XMLSchema"/>
+  </ns1:operation>
+  <ns1:parameter name="allowedMethods" value="getVendorAddress"/>
+  <ns1:parameter name="typeMappingVersion" value="1.2"/>
+  <ns1:parameter name="wsdlPortType" value="VendorAddressService"/>
+  <ns1:parameter name="className" value="com.soap.vendor.VendorAddressService"/>
+  <ns1:parameter name="wsdlServicePort" value="VendorAddressService"/>
+  <ns1:parameter name="schemaQualified" value="http://model.com,http://vendor.soap.com"/>
+  <ns1:parameter name="wsdlTargetNamespace" value="http://vendor.soap.com"/>
+  <ns1:parameter name="wsdlServiceElement" value="VendorAddressServiceService"/>
+  <ns1:typeMapping deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory" encodingStyle="" qname="ns4:Address" serializer="org.apache.axis.encoding.ser.BeanSerializerFactory" type="java:com.model.Address" xmlns:ns4="http://model.com"/>
  </ns1:service>
  <ns1:service name="AdminService" provider="java:MSG">
   <ns1:parameter name="allowedMethods" value="AdminService"/>

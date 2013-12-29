@@ -1,0 +1,37 @@
+<!-- Use this file to deploy some handlers/chains and services      -->
+<!-- Two ways to do this:                                           -->
+<!--   java org.apache.axis.client.AdminClient deploy.wsdd          -->
+<!--      after the axis server is running                          -->
+<!-- or                                                             -->
+<!--   java org.apache.axis.utils.Admin client|server deploy.wsdd   -->
+<!--      from the same directory that the Axis engine runs         -->
+
+<deployment
+    xmlns="http://xml.apache.org/axis/wsdd/"
+    xmlns:java="http://xml.apache.org/axis/wsdd/providers/java">
+
+  <!-- Services from VendorAddressServiceService WSDL service -->
+
+  <service name="VendorAddressService" provider="java:RPC" style="wrapped" use="literal">
+      <parameter name="wsdlTargetNamespace" value="http://vendor.soap.com"/>
+      <parameter name="wsdlServiceElement" value="VendorAddressServiceService"/>
+      <parameter name="schemaQualified" value="http://model.com,http://vendor.soap.com"/>
+      <parameter name="wsdlServicePort" value="VendorAddressService"/>
+      <parameter name="className" value="com.soap.vendor.VendorAddressServiceSoapBindingImpl"/>
+      <parameter name="wsdlPortType" value="VendorAddressService"/>
+      <parameter name="typeMappingVersion" value="1.2"/>
+      <operation name="getVendorAddress" qname="operNS:getVendorAddress" xmlns:operNS="http://vendor.soap.com" returnQName="retNS:getVendorAddressReturn" xmlns:retNS="http://vendor.soap.com" returnType="rtns:Address" xmlns:rtns="http://model.com" soapAction="" >
+        <parameter qname="pns:vendorId" xmlns:pns="http://vendor.soap.com" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+      </operation>
+      <parameter name="allowedMethods" value="getVendorAddress"/>
+
+      <typeMapping
+        xmlns:ns="http://model.com"
+        qname="ns:Address"
+        type="java:com.model.Address"
+        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+        encodingStyle=""
+      />
+  </service>
+</deployment>
