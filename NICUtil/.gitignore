@@ -1,6 +1,5 @@
 /target
-/target
-/target
-/target
-/target
-/target
+/.settings
+*.jar
+.classpath
+.project
