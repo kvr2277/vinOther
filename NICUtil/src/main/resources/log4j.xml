@@ -12,7 +12,7 @@
 
     <!-- File Appender -->
     <appender name="file" class="org.apache.log4j.RollingFileAppender">
-        <param name="File" value="rest-sample.log"/>
+        <param name="File" value="${catalina.base}/logs/NICUtil.log"/>
         <param name="MaxFileSize" value="10000KB"/>
         <param name="MaxBackupIndex" value="20"/>
         <layout class="org.apache.log4j.PatternLayout">
@@ -32,15 +32,17 @@
         <level value="debug" />
     </logger>
 
-     <!--    <logger name="com.blog.spring.jms">
+        <logger name="com.activemq.helper">
         <level value="debug" />
-    </logger> -->
+        <appender-ref ref="file" /> 
+    </logger> 
 
 
     <!-- Root Logger -->
     <root>
         <priority value="info" />
         <appender-ref ref="console" />
+        <appender-ref ref="file" />
     </root>
 
 </log4j:configuration>
