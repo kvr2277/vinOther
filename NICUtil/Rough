@@ -1,0 +1,67 @@
+.ui-dialog.success-dialog .ui-widget-header {
+    background: #ffffff;
+    border: 0;
+    color: #fff;
+    font-weight: normal;
+}
+
+.ui-widget.success-dialog {
+    font-family: Verdana,Arial,sans-serif;
+    font-size: .8em;
+}.ui-dialog.success-dialog .ui-widget-header {
+    background: #ffffff;
+    border: 0;
+    color: #fff;
+    font-weight: normal;
+}
+
+.ui-widget.success-dialog {
+    font-family: Verdana,Arial,sans-serif;
+    font-size: .8em;
+}
+
+.ui-dialog.success-dialog .ui-icon{
+   display: none;
+}
+
+
+---------
+
+function fnOpenNormalDialog() {
+    $("#dialog-confirm").html("Confirm Dialog Box");
+
+    // Define the Dialog and its properties.
+    $("#dialog-confirm").dialog({
+        resizable: false,
+        modal: false,
+         dialogClass: 'no-close success-dialog',
+       // title: "Modal",
+        //height: 250,
+       // width: 400,
+        buttons: {
+            "Yes": function () {
+                $(this).dialog('close');
+                callback(true);
+            },
+                "No": function () {
+                $(this).dialog('close');
+                callback(false);
+            }
+        }
+    });
+}
+
+$('#btnOpenDialog').click(fnOpenNormalDialog);
+
+function callback(value) {
+    if (value) {
+        alert("Confirmed");
+    } else {
+        alert("Rejected");
+    }
+}
+
+-------------------
+
+<input type="button" id="btnOpenDialog" value="Open Confirm Dialog" />
+<div id="dialog-confirm"></div>
