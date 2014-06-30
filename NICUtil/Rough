@@ -65,3 +65,8 @@ function callback(value) {
 
 <input type="button" id="btnOpenDialog" value="Open Confirm Dialog" />
 <div id="dialog-confirm"></div>
+
+
+----
+
+http://jsfiddle.net/qP8DY/24/
