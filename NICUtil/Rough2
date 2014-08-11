@@ -1,0 +1,46 @@
+All you do is check entire code in:
+https://github.com/kvr2277/vinxplore/tree/master/NICUtil/src/main/java/com/vinJersey
+
+This is the client class - which calls the Restful service
+https://github.com/kvr2277/vinxplore/blob/master/NICUtil/src/main/java/com/vinJersey/client/JerseyClientGet.java
+
+This is the service class
+https://github.com/kvr2277/vinxplore/blob/master/NICUtil/src/main/java/com/vinJersey/rest/JSONService.java
+
+In client u call :
+http://localhost:9280/NICUtil/rest/contact/get
+
+Question - How that path comes? 
+Answer - NICUtil is my application name 
+and 
+Check web.xml
+https://github.com/kvr2277/vinxplore/blob/master/NICUtil/src/main/webapp/WEB-INF/web.xml
+
+<servlet-mapping>
+<servlet-name>jersey-serlvet</servlet-name>
+<url-pattern>/rest/*</url-pattern>
+</servlet-mapping>
+
+and in service class - JSONService.java
+@Path("contact")
+@Path("/get")
+
+
+Your problem:
+1. Call one rest service (A)
+2. From A call one more rest service (B)
+3. Get JSON (J) from B
+4. But B is not available, so you want to mock B with the json u have
+
+You need to do:
+1. Either prepare a client using 
+JerseyClientGet.java
+or JerseyClientPost.java
+2. Call a service similar to JSONService.java (lets call this A)
+3. Now JSONService.java is your new intermediate client which has to call B
+4. In JSONService's method
+	public Business getTrackInJSON() {
+		//write some commented code to call B
+		//and get the response from B
+		//return the JSON (you replace your sample JSON here and uncomment)
+	}
