@@ -46,3 +46,53 @@ or JerseyClientPost.java
 		//and get the response from B
 		//return the JSON (you replace your sample JSON here and uncomment)
 	}
+	
+	
+	-----------
+	
+	1. Create VehicleTable.properties file with below data
+Swift, Maruti, Car, 7 lakhs
+Dost, Ashok Leyland, Truck, 45 lakhs
+Discover, Baja, Bike, .6 lakhs
+Camry, Toyota, Car, 22 lakhs
+
+First one is vehicle name
+Second one is vehicle maker
+Third - vehicle type
+Fourth - Price 
+
+2. Create TyresAndSeatsTable.properties file with below data
+Car – 4, 5
+Truck – 6, 3
+Bike – 2, 2
+
+First one is number of tyres
+Second one is seating capacity
+
+
+3. Create interface – Vehicle – with methods both having integer return types – numberOfTyres(), seatingCapacity()
+4.Create 3 classes – Car, Truck, Bike  each implementing Vehicle
+   While writing implementation of classes, read from TyresAndSeatsTable.properties file and return numberOfTyres and seatingCapacity
+
+
+5. Prepare a class Vehicle - with methods getType(String vehicleName), getMaker(String vehicleName), getPrice(String vehicleName)  - all returning Strings
+ - based on vehicleName, required value for each method should be fetched from VehicleTable.properties
+
+
+6. In your main class -
+Read input from Request.properties file
+Request.properties should have:
+Swift
+Dicover
+Camry
+Dost
+
+
+7. Using Vehcile class' getType(String vehicleName) - prepare respective object of Car or Truck or Bike
+and then get the numberOfTyres and seatingCapacity - using these objects
+
+8. Finally write the response to a new properties file (Response.properties) like below:
+Swift - Maruti, Car, 7 lakhs, 4 tyres, 5 seating capacity
+Discover - Baja, Bike, .6 lakhs, 2 tyres, 2 seating capacity
+Camry - Toyota, Car, 22 lakhs, 4 tyres, 5 seating capacity
+Dost - Ashok Leyland, Truck, 45 lakhs, 6 tyres, 3 seating capacity
